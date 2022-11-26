@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeliCraft</title>
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/copyip.js"></script>
+    <script src="/js/jquery-3.6.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/leonardosnt/mc-player-counter/dist/mc-player-counter.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg fs-5">
+            <div class="container-fluid">
+              <a class="navbar-brand text-white font2" href="#">HeliCraft</a>
+              <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon text-white"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="#"><i class="bi bi-bookmark"></i> Главная</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white" href="/rules"><i class="bi bi-book"></i> Правила</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white" href="/allowed-mods-and-rp/"><i class="bi bi-check-square"></i> Разрешенные моды</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white-50 disabled">Новости</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white-50 disabled">Бан-лист</a>
+                  </li>
+                </ul>
+                <a class="nav-link text-white-50 dropdown-toggle disabled" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Аккаунт
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item disabled" href="#">Аккаунт</a></li>
+                    <li><a class="dropdown-item disabled" href="#">Поддержка</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item disabled" href="#">Выйти</a></li>
+                  </ul>
+              </div>
+            </div>
+          </nav>
+        <div class="container-fluid landing">
+            <h1 class="text-center font2 text-white">HeliCraft</h1>
+            <h2 class="text-center text-white">Ванильный сервер Minecraft</h2>
+            <p class="text-center text-white fs-3">IP: <span id="IPADR">mc.helicraft.ru</span></p>
+            <div class="col-12 col-lg-3 mx-auto d-grid">
+                <button type="button" onclick="copyText('#IPADR')" class="btn btn-info">Скопировать IP в буфер</button>
+            </div>
+        </div>
+        <div class="container-fluid" id="online">
+            <p class="text-white text-center fs-4">На сервере <span data-playercounter-ip="mc.helicraft.ru">Loading...</span> игроков</p>
+        </div>
+    </header>
+    <main>
+       <div class="container-fluid">
+            <div class="row">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-8 text-white"><hr class="border opacity-75 border-3"></div>
+                    <div class="col-12">
+                        <p class="text-white text-center fs-4">Сервер HeliCraft был основан в 2020 году в августе. С того момента сервером руководит главный админ ms0ur.<br>
+                            Сейчас мы стараемся максимально приблизить основной сервер к ванильной концепции игры. Вайпы на основном<br>
+                           сервере проводятся раз в полгода или реже. Также мы занимаемся разработкой второго сервера,<br>
+                           пока его тематика и другие подробности о нём не известны.</p>
+                    </div>
+                    <div class="col-4 text-white"><hr class="border opacity-75 border-3"></div>
+                </div>
+            </div>
+       </div>
+    </main>
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <p class="fs-3 text-white text-center">HeliCraft, 2020-2022</p>
+                    <p class="fs-4 text-white text-center">ms0ur/HeliCraft_Site {branch}</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>
