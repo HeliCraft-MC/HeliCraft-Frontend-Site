@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-lg fs-5">
             <div class="container-fluid">
-              <a class="navbar-brand text-white font2" href="#">HeliCraft</a>
+              <a class="navbar-brand text-white font2" href="/">HeliCraft</a>
               <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon text-white"></span>
               </button>
