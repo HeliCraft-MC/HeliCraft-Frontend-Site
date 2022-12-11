@@ -27,6 +27,5 @@ include 'api/head.php';
     <?php 
     include 'api/footer.php';
     ?>
-    <script src="/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 </html>
