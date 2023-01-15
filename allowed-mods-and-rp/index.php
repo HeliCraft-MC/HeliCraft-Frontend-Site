@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-    <?php include '/../api/navbar.php'; ?>
+    <?php include '../api/navbar.php'; ?>
         <div class="container-fluid landing">
             <h1 class="text-center font2 text-white">HeliCraft</h1>
             <h2 class="text-center text-white">Список разрешённых модов и ресурс-паков</h2>
@@ -110,7 +110,7 @@
      </main>
      <footer>
         <?php
-         include '/../api/footer.php';
+         include '../api/footer.php';
          ?>
      </footer>
 </body>
