@@ -9,5 +9,5 @@
     <link rel="stylesheet" href="/css/styles.css">
     <script src="/js/copyip.js"></script>
     <script src="/js/jquery-3.6.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/leonardosnt/mc-player-counter/dist/mc-player-counter.min.js"></script>
+    <script src="/js/players.js" defer></script>
 </head>

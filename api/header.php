@@ -7,5 +7,5 @@
             </div>
         </div>
         <div class="container-fluid" id="online">
-            <p class="text-white text-center fs-4">На сервере <span data-playercounter-ip="mc.helicraft.ru">Loading...</span> игроков</p>
+            <p class="text-white text-center fs-4"><span id="onlinetxt">Loading...</span></p>
 </div>
