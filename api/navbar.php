@@ -1,3 +1,7 @@
+        <?php
+        include 'var.php';
+        ?>
+        
         <nav class="navbar navbar-expand-lg fs-5">
             <div class="container-fluid">
               <a class="navbar-brand text-white font2" href="#">HeliCraft</a>
