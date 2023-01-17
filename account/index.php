@@ -1,9 +1,10 @@
 
 
 <?php
-
+require '../api/database.php';
 //check if session exists
-if(isset ($_SESSION['username'])){
+if(isset ($_SESSION['logged_user'])){
+    require_once '../api/plan_database.php';
     //session exists
     ?>
     <!DOCTYPE html>
@@ -17,7 +18,7 @@ if(isset ($_SESSION['username'])){
         <title>Личный кабинет</title>
     </head>
     <body>
-        
+        All work!
     </body>
     </html>
     <?php
@@ -50,7 +51,7 @@ if(isset ($_SESSION['username'])){
                     <div id="passwordHelpBlock" class="form-text text-white-50">
                         Пароль, с которым вы авторизируйтесь на сервере
                     </div>
-                    <button name="sumbit" class="btn btn-primary mg5">Войти</button>
+                    <button name="submit" class="btn btn-primary mg5">Войти</button>
                 </form>
             </div>
         </div>
