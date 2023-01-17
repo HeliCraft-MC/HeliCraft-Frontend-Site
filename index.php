@@ -1,5 +1,5 @@
 <?php
-
+require_once 'api/database.php';
 include 'api/head.php';
 ?>
 <body>
