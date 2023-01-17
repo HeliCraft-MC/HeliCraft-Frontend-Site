@@ -1,6 +1,4 @@
-        <?php
-        include 'var.php';
-        ?>
+
         
         <nav class="navbar navbar-expand-lg fs-5">
             <div class="container-fluid">
