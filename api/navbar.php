@@ -32,7 +32,7 @@ require_once 'database.php';
                   <?php if(isset ($_SESSION['logged_user'])){ ?>
                   <div class="dropstart">
                     <a class="dropdown-toggle nav-link text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Аккаунт <?php $_SESSION['logged_user'] ?>
+                      Аккаунт <?php echo $_SESSION['logged_user']; ?>
                     </a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="/account">Аккаунт</a></li>
