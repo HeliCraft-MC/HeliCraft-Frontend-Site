@@ -19,4 +19,3 @@ if (!$conn) {
 
 session_start();
 ?>
-a
