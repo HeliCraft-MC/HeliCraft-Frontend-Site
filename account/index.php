@@ -37,8 +37,22 @@ if(isset ($_SESSION['username'])){
     <body>
         <h1 class="font2 text-center text-white">Вход</h1>
         <div class="d-flex justify-content-center mg-10">
-        <div class="card ">
-            <div class="card-inner"></div>
+        <div class="card card-log">
+            <div class="card-inner">
+                <form class="mg10-e" action="login.php" method="post">
+                    <label class="form-label text-white">Никнейм:</label>
+                    <input class="form-control" type="text" name="username" required/>
+                    <div id="passwordHelpBlock" class="form-text text-white-50 mg5-d">
+                        Никнейм, с которым вы играете на сервере
+                    </div>
+                    <label class="form-label text-white">Пароль:</label>
+                    <input class="form-control" type="password" name="password" required/>
+                    <div id="passwordHelpBlock" class="form-text text-white-50">
+                        Пароль, с которым вы авторизируйтесь на сервере
+                    </div>
+                    <button name="sumbit" class="btn btn-primary mg5">Войти</button>
+                </form>
+            </div>
         </div>
         </div>
     </body>
