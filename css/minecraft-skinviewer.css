@@ -97,7 +97,7 @@
   .mc-skin-viewer-9x {
     width: 72px;
     height: 288px;
-    margin: 15px auto 40px auto;
+    margin: 15px auto 40px;
     perspective: 800px;
     perspective-origin: 50% 100px;
     transform-style: preserve-3d;
@@ -681,7 +681,7 @@
   .mc-skin-viewer-11x {
     width: 88px;
     height: 352px;
-    margin: 15px auto 40px auto;
+    margin: 15px auto 40px;
     perspective: 800px;
     perspective-origin: 50% 100px;
     transform-style: preserve-3d;
