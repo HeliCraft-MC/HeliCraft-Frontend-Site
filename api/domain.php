@@ -1,1 +1,1 @@
-https://beta.helicraft.ru
+{domain}
