@@ -9,6 +9,22 @@ if(isset ($_SESSION['logged_user'])){
     $player = $_SESSION['logged_user'];
 
     include '../api/head.php';
+
+    //
+    // Checking for a skin is null
+    //
+    $handle = curl_init($url);
+    curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+    $response = curl_exec($handle);
+    $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+    if($httpCode == 404) {
+        // Skin is null, set to default
+        $skinURL = 'https://skins.helicraft.ru/skins/default/skin.png';
+    } else {
+        // Skin is not null, set to player's skin
+        $skinURL = 'https://skins.helicraft.ru/capes/'.$_SESSION['logged_user'].'.png';
+    }
+    curl_close($handle);
     ?>
     <link rel="stylesheet" href="/css/auth.css">
     <link rel="stylesheet" href="/css/minecraft-skinviewer.css">
@@ -30,11 +46,11 @@ if(isset ($_SESSION['logged_user'])){
                         <div class="col-12">
                             <div class="card card-log mb-3">
                                 <div class="card-inner py-5">
-                                    <h2 class="text-white text-center"> Управление скином <?php echo $_SESSION['logged_user'];?></h2>
+                                    <h2 class="text-white text-center"> Управление скином <!-- <?php echo $_SESSION['logged_user'];?> --> </h2>
                                     <div>
                                         <!-- Set Skin for the Viewer -->
                                         <style>
-                                            #skin-viewer *{ background-image: url('https://skins.helicraft.ru/skins/<?php echo $_SESSION['logged_user']; ?>.png'); }
+                                            #skin-viewer *{ background-image: url('<? echo $skinURL; ?>'); }
                                             #skin-viewer .cape{ background-image: url('https://skins.helicraft.ru/capes/<?php echo $_SESSION['logged_user']; ?>.png'); }
                                         </style>
 
@@ -161,7 +177,7 @@ if(isset ($_SESSION['logged_user'])){
                 <div class="col-lg-8 col-12">
                     <div class="card card-log">
                         <div class="card-inner py-5">
-                            <h2 class="text-white text-center"> Секция в разработке для <?php echo $_SESSION['logged_user'];?>...</h2>
+                            <h2 class="text-white text-center"> Секция в разработке <!-- для <?php echo $_SESSION['logged_user'];?> --> ...</h2>
                             <p class="text-white text-center">Скоро здесь что-нибудь будет...</p>
                         </div>
                     </div>
@@ -171,7 +187,7 @@ if(isset ($_SESSION['logged_user'])){
         <script src="/bootstrap/bootstrap.bundle.min.js"></script>
     </body>
     <script>
-        var imageUrl = 'https://skins.helicraft.ru/skins/<?php echo $_SESSION['logged_user']; ?>.png';
+        var imageUrl = '<? echo $skinURL; ?>';
         var timestamp = new Date().getTime();
         imageUrl = imageUrl.split('?')[0] + '?t=' + timestamp;
         var elements = document.querySelectorAll('.top, .left, .front, .right, .back, .bottom');
