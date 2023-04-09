@@ -8,7 +8,7 @@ body{
 footer{
     padding: 50px 0 50px 0;
 }
-header,footer {
+header,footer, .landing, #online {
     background: url(/assets/img/main_background2.png) no-repeat center /cover, #ab67ff;
     background-blend-mode: multiply;
     background-attachment: fixed;
