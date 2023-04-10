@@ -3,9 +3,6 @@ require '../api/database.php';
 //check if session exists
 if(isset ($_SESSION['logged_user'])){
     //session exists
-    require_once '../api/plan_database.php';
-    require_once '../api/skin_database.php';
-    require_once '../api/economy_database.php';
     $player = $_SESSION['logged_user'];
 
     include '../api/head.php';
