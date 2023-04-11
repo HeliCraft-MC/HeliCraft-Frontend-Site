@@ -32,8 +32,8 @@ require_once 'database.php';
                             Скачать лаунчер
                           </a>
                           <ul class="dropdown-menu dropdown-menu-dark" style="padding-left: 0px">
-                            <li><a class="dropdown-item" href="/HeliLauncher.exe">Windows</a></li>
-                            <li><a class="dropdown-item" href="/HeliLauncher.jar">Linux/MacOS</a></li>
+                            <li><a class="dropdown-item" href="https://skins.helicraft.ru/launcher/HeliLauncher.exe">Windows</a></li>
+                            <li><a class="dropdown-item" href="https://skins.helicraft.ru/launcher/HeliLauncher.jar">Linux/MacOS</a></li>
                           </ul>                          
                         </div>
                         <?php }else{ ?>
