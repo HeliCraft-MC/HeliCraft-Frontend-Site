@@ -47,7 +47,7 @@ if(isset ($_SESSION['logged_user'])){
                                     <div>
                                         <!-- Set Skin for the Viewer -->
                                         <style>
-                                            #skin-viewer *{ background-image: url('<? echo $skinURL; ?>'); }
+                                            #skin-viewer *{ background-image: url('<?php echo $skinURL; ?>'); }
                                             #skin-viewer .cape{ background-image: url('https://skins.helicraft.ru/capes/<?php echo $_SESSION['logged_user']; ?>.png'); }
                                         </style>
 
