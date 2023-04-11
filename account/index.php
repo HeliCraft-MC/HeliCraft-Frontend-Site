@@ -184,7 +184,7 @@ if(isset ($_SESSION['logged_user'])){
         <script src="/bootstrap/bootstrap.bundle.min.js"></script>
     </body>
     <script>
-        var imageUrl = $skinURL;
+        var imageUrl = <?php echo $skinURL; ?>;
         var timestamp = new Date().getTime();
         imageUrl = imageUrl.split('?')[0] + '?t=' + timestamp;
         var elements = document.querySelectorAll('.top, .left, .front, .right, .back, .bottom');
