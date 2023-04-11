@@ -10,7 +10,7 @@ if(isset ($_SESSION['logged_user'])){
     //
     // Checking for a skin is null
     //
-    $handle = curl_init($url);
+    $handle = curl_init('https://skins.helicraft.ru/skins/'.$_SESSION['logged_user'].'.png');
     curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($handle);
     $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
@@ -19,7 +19,7 @@ if(isset ($_SESSION['logged_user'])){
         $skinURL = 'https://skins.helicraft.ru/skins/default/skin.png';
     } else {
         // Skin is not null, set to player's skin
-        $skinURL = 'https://skins.helicraft.ru/capes/'.$_SESSION['logged_user'].'.png';
+        $skinURL = 'https://skins.helicraft.ru/skins/'.$_SESSION['logged_user'].'.png';
     }
     curl_close($handle);
     ?>
@@ -184,7 +184,7 @@ if(isset ($_SESSION['logged_user'])){
         <script src="/bootstrap/bootstrap.bundle.min.js"></script>
     </body>
     <script>
-        var imageUrl = '<? echo $skinURL; ?>';
+        var imageUrl = $skinURL;
         var timestamp = new Date().getTime();
         imageUrl = imageUrl.split('?')[0] + '?t=' + timestamp;
         var elements = document.querySelectorAll('.top, .left, .front, .right, .back, .bottom');
