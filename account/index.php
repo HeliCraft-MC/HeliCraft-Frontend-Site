@@ -26,12 +26,9 @@ if(isset ($_SESSION['logged_user'])){
     <link rel="stylesheet" href="/css/auth.css">
     <link rel="stylesheet" href="/css/minecraft-skinviewer.css">
     <body>
-        <?php
-        include '../api/preloader.php';
-        ?>
         <?php include '../api/navbar.php'; ?>
 
-        <div class="hidden container-fluid content">
+        <div class="container-fluid content">
         <div class="modal fade" id="newPassModal" tabindex="-1" aria-labelledby="newPassModalLabel" aria-hidden="true">
             <div class="modal-dialog">
             </div>

@@ -3,10 +3,7 @@ require_once 'api/database.php';
 include 'api/head.php';
 ?>
 <body>
-    <?php
-    include 'api/preloader.php';
-    ?>
-    <div class="hidden content">
+    <div class="content">
         <header>
             <?php
             include 'api/navbar.php';

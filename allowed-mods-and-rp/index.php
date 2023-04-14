@@ -3,10 +3,7 @@ require_once '../api/database.php';
 include '../api/head.php';
 ?>
 <body>
-    <?php
-    include '../api/preloader.php';
-    ?>
-    <div class="hidden" id="content">
+    <div id="content">
     <header>
     <?php include '../api/navbar.php'; ?>
         <div class="container-fluid landing">
