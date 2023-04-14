@@ -31,7 +31,7 @@ if(isset ($_SESSION['logged_user'])){
         ?>
         <?php include '../api/navbar.php'; ?>
 
-        <div class="hidden container-fluid" id="content">
+        <div class="hidden container-fluid content">
         <div class="modal fade" id="newPassModal" tabindex="-1" aria-labelledby="newPassModalLabel" aria-hidden="true">
             <div class="modal-dialog">
             </div>
