@@ -1,5 +1,5 @@
 let loaderNode = document.querySelector('.preloader');
-let contentNode = document.getElementById('content');
+let contentNode = document.querySelector('.content');
 
 function dispNone(){
     loaderNode.classList.remove('preloaderHidden');
