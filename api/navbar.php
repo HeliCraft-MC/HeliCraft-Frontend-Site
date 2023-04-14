@@ -28,7 +28,7 @@ require_once 'database.php';
                     <li class="nav-item">
                           <?php if(isset ($_SESSION['logged_user'])){ ?>
                         <div class="dropdown">
-			  <a class="dropdown-toggle nav-link text-white" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+			                  <a class="dropdown-toggle nav-link text-white" type="button" data-bs-toggle="dropdown" aria-expanded="true">
                             Скачать лаунчер
                           </a>
                           <ul class="dropdown-menu dropdown-menu-dark" style="padding-left: 0px">
@@ -47,9 +47,8 @@ require_once 'database.php';
                           </ul>
                         </div>
                         <?php } ?>
-                      </div>
                     </li>
-		    <li class="nav-item">
+		                <li class="nav-item">
                           <?php if(isset ($_SESSION['logged_user'])){ ?>
                         <div class="dropdown">
                           <a class="dropdown-toggle nav-link text-white" type="button" data-bs-toggle="dropdown" aria-expanded="true">
