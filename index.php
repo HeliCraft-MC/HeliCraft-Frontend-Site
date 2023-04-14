@@ -6,7 +6,7 @@ include 'api/head.php';
     <?php
     include 'api/preloader.php';
     ?>
-    <div class="hidden" id="content">
+    <div class="hidden content">
         <header>
             <?php
             include 'api/navbar.php';
