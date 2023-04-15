@@ -1,0 +1,10 @@
+{
+    "DRIVER": "MYSQL",
+    "HOST": "localhost",
+    "USER": "root",
+    "PASSWORD": "root",
+    "DATABASE": "test",
+    "TABLE": "table",
+    "USERNAME_COLUMN": "users",
+    "PASSWORD_COLUMN": "password"
+}

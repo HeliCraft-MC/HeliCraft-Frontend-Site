@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -17,9 +17,12 @@
   },
   "homepage": "https://github.com/ms0ur/HC2#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "express": "^4.18.2",
     "hbs": "^4.2.0",
+    "jsonwebtoken": "^9.0.0",
     "mysql": "^2.18.1",
+    "net": "^1.0.2",
     "nodemon": "^2.0.22"
   }
 }
