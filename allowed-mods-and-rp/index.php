@@ -94,7 +94,7 @@ include '../api/head.php';
                                 <li class="modslist"><a class="text-decoration-none text-white" href="https://modrinth.com/mod/better-stats">Better Statistics Screen (Fabric)</a></li>
                             </ul>
                             <p class="text-center mg-30 text-danger fs-2">Остальные моды и загрузчики модов нежелательны к использованию!</p>
-                            <p class="text-center mg-10 text-white fs-3">Если какого-то мода нет в списке, но вы хотите чтобы он появился, напишите в телеграм <a href="https://t.me/ms0ur_work" class="text-decoration-none text-white">@ms0ur_work(клик)</a></p>
+                            <p class="text-center mg-10 text-white fs-3">Если какого-то мода нет в списке, но вы хотите чтобы он появился, напишите в телеграм <a href="https://t.me/ms0ur" class="text-decoration-none text-white">@ms0ur(клик)</a></p>
                          </p>
                      </div>
                      <div class="col-4 text-white"><hr class="border opacity-75 border-3"></div>
