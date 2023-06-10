@@ -84,7 +84,6 @@ include '../api/head.php';
                                 <li class="modslist"><a class="text-decoration-none text-white" href="https://modrinth.com/mod/ost-overhaul">OstOverhaul</a></li>
                                 <li class="modslist"><a class="text-decoration-none text-white" href="https://modrinth.com/mod/shulkerboxtooltip">ShulkerBoxTooltip [Fabric/Forge]</a></li>
                                 <li class="modslist"><a class="text-decoration-none text-white" href="https://modrinth.com/mod/resounding">Resounding</a></li>
-                                <li class="modslist"><a class="text-decoration-none text-white" href="https://modrinth.com/mod/replaymod">ReplayMod</a></li>
                                 <li class="modslist"><a class="text-decoration-none text-white" href="https://modrinth.com/mod/smooth-swapping">Smooth Swapping</a></li>
                                 <li class="modslist"><a class="text-decoration-none text-white" href="https://modrinth.com/mod/statuseffecttimer">Status Effect Timer</a></li>
                                 <li class="modslist"><a class="text-decoration-none text-white" href="https://modrinth.com/mod/seamless-loading-screen">Seamless Loading Screen</a></li>
