@@ -1,7 +1,0 @@
-{
-    "PORT": 3000,
-    "DOMAIN": "localhost",
-    "SECRET_KEY": "secret",
-    "MINECRAFT_SERVER_HOST": "example.com",
-    "MINECRAFT_SERVER_PORT": 25565
-}
