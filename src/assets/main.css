@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;500;1000&family=Press+Start+2P&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body{
+    font-family: 'Nunito', sans-serif;
+    background: url(../assets/background.png) no-repeat center /cover, #ab67ff;
+    background-blend-mode: multiply;
+    background-attachment: fixed;
+}
+
+.headers{
+    font-family: 'Press Start 2P', cursive;
+}
