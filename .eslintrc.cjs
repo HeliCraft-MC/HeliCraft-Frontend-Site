@@ -11,5 +11,9 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest'
-  }
+  },
+  ignorePatterns: [
+    "/postcss.config.js",
+    "/tailwind.config.js"
+  ]
 }
