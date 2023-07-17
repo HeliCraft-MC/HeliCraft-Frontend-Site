@@ -1,9 +1,9 @@
 <script lang="ts">
-import CopyButtonN from '@/components/CopyButton.vue';
+import CopyButtonN from '@/components/CopyButton.vue'
 export default {
-    components: {
-        CopyButtonN
-    }
+  components: {
+    CopyButtonN
+  }
 }
 </script>
 <template>
