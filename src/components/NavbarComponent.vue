@@ -10,8 +10,8 @@ export default {
     >
       <h2 class="headers text-4xl">HeliCraft</h2>
       <div class="flex justify-between gap-10">
-        <router-link class="text-lg" to="/">Home</router-link>
-        <router-link class="text-lg" to="/">Home</router-link>
+        <router-link class="text-lg" to="/">Главная</router-link>
+        <router-link class="text-lg" to="/rules">Правила</router-link>
         <router-link class="text-lg" to="/">Home</router-link>
         <router-link class="text-lg" to="/">Home</router-link>
         <router-link class="text-lg" to="/">Home</router-link>
