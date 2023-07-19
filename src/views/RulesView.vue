@@ -9,7 +9,6 @@ export default {
     <h2 class="text-lg">Правила сервера</h2>
   </header>
   <main class="flex bg-violet-800 w-full text-white justify-center items-center text-lg">
-    <p>
         <ol>
           <li>
             <b>Раздел 1. Общие положения.</b>
@@ -30,7 +29,6 @@ export default {
             </ol>
           </li>
         </ol>
-    </p>
   </main>
 </template>
 <style scoped>
