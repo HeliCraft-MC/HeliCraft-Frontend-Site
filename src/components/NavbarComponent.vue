@@ -13,8 +13,8 @@ export default {
         <router-link class="text-lg" to="/">Главная</router-link>
         <router-link class="text-lg" to="/rules">Правила</router-link>
         <router-link class="text-lg" to="/">Home</router-link>
-        <router-link class="text-lg" to="/">Home</router-link>
-        <router-link class="text-lg" to="/">Home</router-link>
+        <router-link class="text-lg" to="/"></router-link>
+        <router-link class="text-lg" to="/"></router-link>
       </div>
     </div>
   </div>

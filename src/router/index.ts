@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import HomeView from '@/views/HomeView.vue'
 import RulesView from '@/views/RulesView.vue'
+import AuthView from '@/views/AuthView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +29,11 @@ const router = createRouter({
       path: '/rules',
       name: 'rules',
       component: RulesView
+    },
+    {
+      path: '/auth',
+      name: 'auth',
+      component: AuthView,
     }
   ]
 })
