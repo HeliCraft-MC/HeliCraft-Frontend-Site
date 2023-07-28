@@ -5,17 +5,18 @@
         <h2 class="subheader">Авторизация</h2>
       </div>
       <div class="content">
-        <form class="form">
+        <form class="form" @submit.prevent="loginOrRegister">
+          <div class="inline-block px-2 py-1 leading-none bg-red-500 text-white rounded-full" v-if="isError">Error: {{ error }}</div>
           <h3 class="form-title">{{ isLogin ? 'Вход' : 'Регистрация' }}</h3>
           <div class="form-group">
             <label for="email" class="form-label">Никнейм:</label>
-            <input type="email" id="email" v-model="nickname" class="form-input" />
+            <input type="text" id="email" v-model="nickname" class="form-input" />
           </div>
           <div class="form-group">
             <label for="password" class="form-label">Пароль:</label>
             <input type="password" id="password" v-model="password" class="form-input" />
           </div>
-          <button @click="loginOrRegister" class="form-button">
+          <button type="submit" class="form-button">
             {{ isLogin ? 'Войти' : 'Зарегестрироваться' }}
           </button>
           <button @click.prevent="toggleForm" class="form-toggl">
@@ -27,30 +28,38 @@
   </template>
   
   <script lang="ts">
-  import { checkPassword } from '@/utils/authUtils';
-import { createToken } from '@/utils/jwtUtils';
   import Cookies from 'js-cookie';
+  import axios from 'Axios';
   export default {
     name: 'AuthView',
     data() {
       return {
         nickname: '',
         password: '',
+        token: '',
+        error: '',
+        isError: false,
         isLogin: true
       }
     },
     methods: {
-      async loginOrRegister() {
-        if ( this.isLogin) {
-          if(await checkPassword(this.nickname, this.password)) {
-            Cookies.set('nickname', this.nickname, {
-              expires: 7
-            })
-            Cookies.set('token', createToken(this.nickname), {
-              expires: 7
-            })
-            window.location.href = '/';
-          }
+      async requestAuthToken(){
+        await axios.post('/auth', {
+          nickname: this.nickname,
+          password: this.password,
+          request: 'login'
+        }).then((response) => {
+          this.token = response.data.token
+          Cookies.set('token', this.token)
+        }).catch((error) => {
+          console.log(error)
+          this.isError = true
+          this.error = error
+        })
+      },
+      loginOrRegister() {
+        if (this.isLogin) {
+          this.requestAuthToken();
         }
       },
       toggleForm() {
