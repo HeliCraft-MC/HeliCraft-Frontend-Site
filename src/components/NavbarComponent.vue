@@ -1,6 +1,30 @@
 <script lang="ts">
+import Cookies from 'js-cookie';
 export default {
-  name: 'NavbarComponent'
+  name: 'NavbarComponent',
+  data() {
+    return {
+      isLoggedIn: false,
+      nickname: '',
+      isOpen: false
+    }
+  },
+  mounted() {
+    let nicknameC = Cookies.get('nickname')
+    if(nicknameC && nicknameC!==undefined) {
+      this.nickname = nicknameC
+      this.isLoggedIn = true
+    }
+  },
+  methods: {
+    logout() {
+      Cookies.remove('nickname')
+      Cookies.remove('token')
+      this.isLoggedIn = false
+      this.nickname = ''
+      this.isOpen = false
+    }
+  }
 }
 </script>
 <template>
@@ -13,8 +37,17 @@ export default {
         <router-link class="text-lg" to="/">Главная</router-link>
         <router-link class="text-lg" to="/rules">Правила</router-link>
         <router-link class="text-lg" to="/">Home</router-link>
-        <router-link class="text-lg" to="/"></router-link>
-        <router-link class="text-lg" to="/"></router-link>
+        <router-link class="text-lg bg-white text-gray-800 px-4 py-2 rounded" v-if="!isLoggedIn" to="/auth">Войти</router-link>
+        <div class="relative" v-if="isLoggedIn">
+          <button @click="isOpen = !isOpen" class="px-4 py-2 text-gray-800 bg-gray-200 rounded">
+            Аккаунт {{ nickname }}
+          </button>
+          <div v-if="isOpen" class="absolute right-0 mt-2 bg-white border border-gray-200 rounded shadow">
+            <router-link to="/profile" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Аккаунт</router-link>
+            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Option 2</a>
+            <a href="#" @click="logout" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Выход</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

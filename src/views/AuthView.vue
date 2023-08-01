@@ -43,19 +43,62 @@
       }
     },
     methods: {
-      async requestAuthToken(){
-        await axios.post('/auth', {
+      convertDurationToSeconds(duration:string) {
+        const durationValue = parseInt(duration);
+        const durationUnit = duration.slice(-1);
+
+        let seconds = 0;
+
+        switch (durationUnit) {
+          case 's':
+            seconds = durationValue;
+            break;
+          case 'm':
+            seconds = durationValue * 60;
+            break;
+          case 'h':
+            seconds = durationValue * 60 * 60;
+            break;
+          case 'd':
+            seconds = durationValue * 24 * 60 * 60;
+            break;
+          default:
+            // handle invalid duration unit
+            break;
+          }
+
+        return seconds;
+      },
+      requestAuthToken() {
+        axios.post('/auth', {
           nickname: this.nickname,
           password: this.password,
           request: 'login'
         }).then((response) => {
-          this.token = response.data.token
-          Cookies.set('token', this.token)
+          this.token = response.data.token;
+          const expiresIn = response.data.expiresIn;
+          const expirationSeconds = this.convertDurationToSeconds(expiresIn);
+      
+          const expirationDate = new Date();
+          expirationDate.setSeconds(expirationDate.getSeconds() + expirationSeconds);
+      
+          Cookies.set('token', this.token, {
+            expires: expirationDate,
+            secure: true
+          });
+
+          Cookies.set('nickname', this.nickname, {
+            expires: expirationDate,
+            secure: true
+          });
+
+          window.location.href = '/';
+
         }).catch((error) => {
-          console.log(error)
-          this.isError = true
-          this.error = error
-        })
+          console.log(error);
+          this.isError = true;
+          this.error = error;
+        });
       },
       loginOrRegister() {
         if (this.isLogin) {

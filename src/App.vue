@@ -9,7 +9,7 @@ axios.defaults.baseURL = 'http://localhost:3300'
 </script>
 
 <template>
-  <NavbarComponent class="fixed top-0 left-0" />
+  <NavbarComponent class="fixed top-0 left-0 z-10" />
   <RouterView />
   <FooterComponent />
 </template>

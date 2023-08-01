@@ -1,6 +1,8 @@
 {
   "extends": "./tsconfig.app.json",
-  "exclude": [],
+  "exclude": [
+    "src/components/SkinViewer.vue",
+  ],
   "compilerOptions": {
     "composite": true,
     "lib": [],
