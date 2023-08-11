@@ -4,6 +4,7 @@ import HomeView from '@/views/HomeView.vue'
 import RulesView from '@/views/RulesView.vue'
 import AuthView from '@/views/AuthView.vue'
 import ProfileView from '@/views/ProfileView.vue'
+import SkinViewerComponent from '@/components/SkinViewerComponent.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,6 +41,11 @@ const router = createRouter({
       path: '/profile',
       name: 'profile',
       component: ProfileView
+    },
+    {
+      path: '/skins',
+      name: 'skin catalog',
+      component: SkinViewerComponent
     }
   ]
 })

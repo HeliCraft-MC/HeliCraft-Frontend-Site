@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 import { useEventListener, useLocalStorage } from "@vueuse/core";
 import type {
   CapeLoadOptions,
@@ -17,11 +18,7 @@ import {
 
 import Cookies from "js-cookie";
 
-
-const nickname = Cookies.get("nickname");
-
-
-
+const nickname= Cookies.get('nickname');
 const availableAnimations = {
   idle: new IdleAnimation(),
   walk: new WalkingAnimation(),

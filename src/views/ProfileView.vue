@@ -18,7 +18,8 @@ export default {
         passwordErrorMessage: '',
         skinError: false,
         skinErrorMessage: '',
-        passwordUpdate: false
+        passwordUpdate: false,
+        auth: true
       };
     },
     created() {
@@ -29,6 +30,8 @@ export default {
       let tokenC = Cookies.get('token')
       if(tokenC && tokenC!==undefined) {
         this.token = tokenC
+      } else {
+        this.auth = false
       }
     },
     methods: {
@@ -98,44 +101,67 @@ export default {
   };
 </script>
 <template>
-    <h1 class="text-5xl text-white text-center">Профиль {{ nickname }}</h1>
-    <div class="flex h-screen justify-center">
-      
-        <div class="content flex w-11/12 justify-center">
-            <div class="cont p-5 rounded h-fit flex flex-col">
-                <SkinViewer :key="componentKey" />
-                <div class="bg-slate-300 ml-5 pr-5 py-5 rounded justify-center flex">
-                    <div>
-                      <h3 class="text-xl text-center md-5">Загрузить новый скин</h3>
-                      <div class="bg-red-200 text-red-800 p-4 rounded ml-5 my-5" v-if="skinError">
-                        <span class="font-bold">{{ skinErrorMessage }}</span>
-                      </div>
-                      <input class=" bg-slate-100 rounded ml-5 p-5" type="file" ref="fileInput" @change="handleFileChange" />
-                      <button class=" bg-slate-100 rounded ml-10 p-5" @click="uploadFile">Загрузить</button>
-                    </div>
-                </div>
-                <div class="flex justify-center">
-                  <router-link to="/skins" class="bg-slate-100 rounded mt-10 p-5">
-                    Выбрать скин из каталога
-                  </router-link>
-                </div>
-            </div>
-            <div class="cont ml-10 rounded h-fit p-10">
-                <div class="bg-slate-300 ml-5 pr-5 py-5 rounded justify-center">
-                    <h3 class="text-xl text-center md-5">Изменить пароль</h3>
-                    <div class="bg-red-200 text-red-800 p-4 rounded ml-5 my-5" v-if="passwordError">
-                      <span class="font-bold">{{ passwordErrorMessage }}</span>
-                    </div>
-                    <div class="bg-green-200 text-green-800 p-4 rounded ml-5 my-5" v-if="passwordUpdate">
-                      <span class="font-bold">Пароль обновлен!</span>
-                    </div>
-                    
-                    <input class=" bg-slate-100 rounded ml-5 p-5" type="password" v-model="password" />
-                    <button class=" bg-slate-100 rounded ml-10 p-5" @click="changePassword">Изменить</button>
-                </div>
-            </div>
+    <div v-if="auth">
+      <h1 class="text-5xl text-white text-center">Профиль {{ nickname }}</h1>
+      <div class="flex h-screen justify-center">
         
-        </div>
+          <div class="content flex w-11/12 justify-center">
+              <div class="cont p-5 rounded h-fit flex flex-col">
+                  <SkinViewer :key="componentKey" />
+                  <div class="bg-slate-300 ml-5 pr-5 py-5 rounded justify-center flex">
+                      <div>
+                        <h3 class="text-xl text-center md-5">Загрузить новый скин</h3>
+                        <div class="bg-red-200 text-red-800 p-4 rounded ml-5 my-5" v-if="skinError">
+                          <span class="font-bold">{{ skinErrorMessage }}</span>
+                        </div>
+                        <input class=" bg-slate-100 rounded ml-5 p-5" type="file" ref="fileInput" @change="handleFileChange" />
+                        <button class=" bg-slate-100 rounded ml-10 p-5" @click="uploadFile">Загрузить</button>
+                      </div>
+                  </div>
+                  <div class="flex blur-md justify-center cursor-not-allowed ">
+                    <router-link to="" class="bg-slate-100 cursor-not-allowed rounded mt-10 p-5">
+                      Каталог скинов(СКОРО!!!!)
+                    </router-link>
+                  </div>
+              </div>
+              <div class=" ">
+                  <div class="cont ml-10 rounded h-fit p-10">
+                    <div class="bg-slate-300 ml-5 pr-5 py-5 rounded justify-center">
+                      <h3 class="text-xl text-center md-5">Изменить пароль</h3>
+                      <div class="bg-red-200 text-red-800 p-4 rounded ml-5 my-5" v-if="passwordError">
+                        <span class="font-bold">{{ passwordErrorMessage }}</span>
+                      </div>
+                      <div class="bg-green-200 text-green-800 p-4 rounded ml-5 my-5" v-if="passwordUpdate">
+                        <span class="font-bold">Пароль обновлен!</span>
+                      </div>
+                      
+                      <input class=" bg-slate-100 rounded ml-5 p-5" type="password" v-model="password" placeholder="Введите новый пароль" />
+                      <button class=" bg-slate-100 rounded ml-10 p-5" @click="changePassword">Изменить</button>
+                    </div>
+                  </div>
+                  <div class="cont ml-10 rounded h-fit p-10 mt-4 flex flex-col justify-center cursor-not-allowed blur-md  text-white">
+                      <h2 class="text-2xl text-center">HeliCraft Reloaded Season 4</h2>
+                      <h3 class="text-2xl text-center">Следущее обновление: --СКОРО--</h3>
+                      <img class="rounded" src="https://placehold.co/500x200?text=Скоро" alt="">
+                      <div class="flex justify-between flex-row items-center">
+                        <p class="text-center">СКОРО</p>
+                        <router-link to="" class="bg-slate-100 cursor-not-allowed text-black rounded mt-10 p-5">
+                          Подробнее
+                        </router-link>
+                      </div>
+                  </div>
+              </div>
+          
+          </div>
+      </div>
+    </div>
+    <div v-else>
+      <h1 class="text-5xl text-white text-center">Вы не авторизованы</h1>
+      <div class="flex justify-center">
+        <router-link to="/auth" class="bg-slate-100 rounded mt-10 p-5">
+          Авторизоваться
+        </router-link>
+      </div>
     </div>
 </template>
 <style scoped>
