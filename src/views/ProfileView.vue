@@ -76,7 +76,9 @@ export default {
           }
   
           const formData = new FormData();
-          formData.append('file', this.file);
+          if(this.file != null){
+            formData.append('file', this.file);
+          }
           formData.append('nickname', this.nickname);
           formData.append('token', this.token);
 
@@ -101,16 +103,17 @@ export default {
   };
 </script>
 <template>
-    <div v-if="auth">
+    <div class="h-full" v-if="auth">
       <h1 class="text-5xl text-white text-center">Профиль {{ nickname }}</h1>
-      <div class="flex h-screen justify-center">
+      <div class="flex h-fit justify-center">
         
-          <div class="content flex w-11/12 justify-center">
-              <div class="cont p-5 rounded h-fit flex flex-col">
-                  <SkinViewer :key="componentKey" />
-                  <div class="bg-slate-300 ml-5 pr-5 py-5 rounded justify-center flex">
-                      <div>
-                        <h3 class="text-xl text-center md-5">Загрузить новый скин</h3>
+          <div class="mx-6 grid lg:h-screen lg:grid-cols-2 lg:grid-rows-2 gap-4 grid-cols-1 w-11/12">
+                <div class="cont h-fit lg:row-span-2 lg:col-span-1 p-5 rounded flex justify-center justify-items-center flex-col">
+                  <SkinViewer class="w-fit place-self-center justify-self-center" :key="componentKey" />
+                  <div class="bg-slate-300 ml-5 pr-5 py-5 rounded justify-center justify-items-center flex flex-col">
+                    <h3 class="text-xl text-center md-5">Загрузить новый скин</h3>
+                      <div class="justify-center justify-items-center flex flex-col sm:flex-row gap-4" >
+      
                         <div class="bg-red-200 text-red-800 p-4 rounded ml-5 my-5" v-if="skinError">
                           <span class="font-bold">{{ skinErrorMessage }}</span>
                         </div>
@@ -125,8 +128,8 @@ export default {
                   </div>
               </div>
               <div class=" ">
-                  <div class="cont ml-10 rounded h-fit p-10">
-                    <div class="bg-slate-300 ml-5 pr-5 py-5 rounded justify-center">
+                  <div class="cont lg:row-span-1 lg:col-span-1 rounded h-fit p-10">
+                    <div class="bg-slate-300 ml-5 pr-5 py-5 rounded flex flex-col justify-center justify-items-center">
                       <h3 class="text-xl text-center md-5">Изменить пароль</h3>
                       <div class="bg-red-200 text-red-800 p-4 rounded ml-5 my-5" v-if="passwordError">
                         <span class="font-bold">{{ passwordErrorMessage }}</span>
@@ -135,11 +138,13 @@ export default {
                         <span class="font-bold">Пароль обновлен!</span>
                       </div>
                       
-                      <input class=" bg-slate-100 rounded ml-5 p-5" type="password" v-model="password" placeholder="Введите новый пароль" />
-                      <button class=" bg-slate-100 rounded ml-10 p-5" @click="changePassword">Изменить</button>
+                      <div class="justify-center justify-items-center flex flex-col sm:flex-row gap-4">
+                        <input class=" bg-slate-100 rounded ml-5 p-5" type="password" v-model="password" placeholder="Введите новый пароль" />
+                        <button class=" bg-slate-100 rounded ml-10 p-5" @click="changePassword">Изменить</button>
+                      </div>
                     </div>
                   </div>
-                  <div class="cont ml-10 rounded h-fit p-10 mt-4 flex flex-col justify-center cursor-not-allowed blur-md  text-white">
+                  <div class="cont lg:row-span-1 lg:col-span-1 rounded h-fit p-10 flex flex-col justify-center cursor-not-allowed blur-md  text-white">
                       <h2 class="text-2xl text-center">HeliCraft Reloaded Season 4</h2>
                       <h3 class="text-2xl text-center">Следущее обновление: --СКОРО--</h3>
                       <img class="rounded" src="https://placehold.co/500x200?text=Скоро" alt="">
@@ -172,7 +177,6 @@ export default {
 }
 .content{
     width: 100%;
-    height: 100%;
 }
 h1{
   margin-top: 130px;
