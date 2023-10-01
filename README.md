@@ -1,4 +1,5 @@
 # HC2
+[![built with Codeium](https://codeium.com/badges/main)](https://codeium.com)
 
 ## Build status for latest commit
 [![Node.js 20.0 Build](https://github.com/ms0ur/HC2/actions/workflows/node.js.yml/badge.svg?branch=vuejs)](https://github.com/ms0ur/HC2/actions/workflows/node.js.yml)
