@@ -1,7 +1,13 @@
 <script lang="ts">
 import CopyButtonN from '@/components/CopyButton.vue'
 import PulsatingDot from '@/components/PulsatingDot.vue';
-import axios from 'Axios';
+import mcs from 'node-mcstatus';
+
+const server = {
+  host: 'mc.helicraft.ru',
+  port: 25567
+}
+const options = { query: true };
 export default {
   components: {
     CopyButtonN,
@@ -11,65 +17,18 @@ export default {
     return {
       online: -1,
       maxOnline: -1,
-      season: "null",
-      year: "null",
-      month: "null",
-      day: "null",
+      motd: "null",
     }
   },
   mounted() {
-    axios.get('https://server-api.helicraft.ru/v1/server', {
-      headers: {
-        'Accept': 'application/json',
-        'key': 'ujfvhsohdfsofapkfcolsjfbidsfgsjgposhgvis'
-      }
-    }).then((response) => {
-      this.online = response.data.onlinePlayers;
-      this.maxOnline = response.data.maxPlayers;
-    })
-
-    axios.post('https://server-api.helicraft.ru/v1/placeholders/replace', 
-  'message=%25rs_season_world%25&uuid=', {
-      headers: {
-        'Accept': 'application/json',
-        'key': 'ujfvhsohdfsofapkfcolsjfbidsfgsjgposhgvis',
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    }).then((response) => {
-      this.season = response.data;
-    })
-
-    axios.post('https://server-api.helicraft.ru/v1/placeholders/replace', 
-  'message=%25rs_year_world%25&uuid=', {
-      headers: {
-        'Accept': 'application/json',
-        'key': 'ujfvhsohdfsofapkfcolsjfbidsfgsjgposhgvis',
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    }).then((response) => {
-      this.year= response.data;
-    })
-
-    axios.post('https://server-api.helicraft.ru/v1/placeholders/replace', 
-  'message=%25rs_month_world%25&uuid=', {
-      headers: {
-        'Accept': 'application/json',
-        'key': 'ujfvhsohdfsofapkfcolsjfbidsfgsjgposhgvis',
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    }).then((response) => {
-      this.month= response.data;
-    })
-
-    axios.post('https://server-api.helicraft.ru/v1/placeholders/replace',
-  'message=%25rs_day_world%25&uuid=', {
-      headers: {
-        'Accept': 'application/json',
-        'key': 'ujfvhsohdfsofapkfcolsjfbidsfgsjgposhgvis',
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    }).then((response) => {
-      this.day= response.data;
+    mcs.statusJava(server.host, server.port, options).then((status) => {
+      this.motd = status.motd?.clean || "Error";
+      this.online = status.players?.online || -1;
+      this.maxOnline = status.players?.max || -1;
+    }).catch(() => {
+      this.motd = "Error";
+      this.online = -1;
+      this.maxOnline = -1;
     })
 
 
@@ -77,72 +36,28 @@ export default {
 
     //interval
     setInterval(() => {
-      axios.get('https://server-api.helicraft.ru//v1/server', {
-      headers: {
-        'Accept': 'application/json',
-        'key': 'ujfvhsohdfsofapkfcolsjfbidsfgsjgposhgvis'
-      }
-    }).then((response) => {
-      this.online = response.data.onlinePlayers;
-      this.maxOnline = response.data.maxPlayers;
-    })
-
-    axios.post('https://server-api.helicraft.ru/v1/placeholders/replace', 
-  'message=%25rs_season_world%25&uuid=', {
-      headers: {
-        'Accept': 'application/json',
-        'key': 'ujfvhsohdfsofapkfcolsjfbidsfgsjgposhgvis',
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    }).then((response) => {
-      this.season = response.data;
-    })
-
-    axios.post('https://server-api.helicraft.ru/v1/placeholders/replace', 
-  'message=%25rs_year_world%25&uuid=', {
-      headers: {
-        'Accept': 'application/json',
-        'key': 'ujfvhsohdfsofapkfcolsjfbidsfgsjgposhgvis',
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    }).then((response) => {
-      this.year = response.data;
-    })
-
-    axios.post('https://server-api.helicraft.ru/v1/placeholders/replace', 
-  'message=%25rs_month_world%25&uuid=', {
-      headers: {
-        'Accept': 'application/json',
-        'key': 'ujfvhsohdfsofapkfcolsjfbidsfgsjgposhgvis',
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    }).then((response) => {
-      this.month= response.data;
-    })
-
-    axios.post('https://server-api.helicraft.ru/v1/placeholders/replace',
-  'message=%25rs_day_world%25&uuid=', {
-      headers: {
-        'Accept': 'application/json',
-        'key': 'ujfvhsohdfsofapkfcolsjfbidsfgsjgposhgvis',
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    }).then((response) => {
-      this.day= response.data;
-    })
+      mcs.statusJava(server.host, server.port, options).then((status) => {
+        this.motd = status.motd?.clean || "Error";
+        this.online = status.players?.online || -1;
+        this.maxOnline = status.players?.max || -1;
+      }).catch(() => {
+        this.motd = "Error";
+        this.online = -1;
+        this.maxOnline = -1;
+      });
     }, 10000);
   }
 }
 </script>
 <template>
   <header class="flex flex-col h-screen justify-center items-center text-white">
-    <h1 class="text-5xl">HeliCraft</h1>
+    <h1 class="text-5xl headers">HeliCraft</h1>
     <h2 class="text-lg">Minecraft сервер. Версия 1.20-1.20.1</h2>
     <CopyButtonN cp="mc.helicraft.ru" class="mt-5" />
     <div class="flex flex-row items-center mt-10">
       
       <PulsatingDot /> &nbsp;&nbsp;&nbsp;&nbsp;На сервере онлайн {{ online }} / {{ maxOnline }} игроков<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;Дата на сервере: {{ day }}.{{ month }}.{{ year }} ({{ season }})<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;{{ motd }}<br>
     </div>
   </header>
   <main class="flex bg-purple-800 w-full h-96 text-white justify-center items-center text-lg">
