@@ -73,12 +73,12 @@ const layers = reactive<Layers>({
     rightLeg: true,
   },
 });
-const skinUrl = ref(`http://localhost:3300/skin/${nickname}`);
+const skinUrl = ref(`https://api.helicraft.ru/skin/${nickname}`);
 const skinOptions = reactive<SkinLoadOptions>({
   model: "auto-detect",
   ears: false,
 });
-const capeUrl = ref("img/mojang_cape.png");
+const capeUrl = ref("https://api.helicraft.ru/capes/${nickname}");
 const capeOptions = reactive<CapeLoadOptions>({
   backEquipment: "cape",
 });

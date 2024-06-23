@@ -5,7 +5,7 @@ import FooterComponent from './components/FooterComponent.vue'
 
 import axios from 'Axios'
 //base url
-axios.defaults.baseURL = 'http://localhost:3300'
+axios.defaults.baseURL = 'https://api.helicraft.ru'
 </script>
 
 <template>
