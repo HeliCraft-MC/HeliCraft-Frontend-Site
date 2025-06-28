@@ -1,4 +1,8 @@
 # HC2
+
+ARCHIVED. NEW VERSION: HeliCraft-MC/Vesper
+
+
 [![built with Codeium](https://codeium.com/badges/main)](https://codeium.com)
 
 ## Build status for latest commit
